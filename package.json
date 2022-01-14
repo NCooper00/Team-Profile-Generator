@@ -1,0 +1,23 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Program that allows a manager to add basic information about their employees and automatically generate an html document displaying their name, information, and links.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NCooper00/Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NCooper00/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/NCooper00/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
