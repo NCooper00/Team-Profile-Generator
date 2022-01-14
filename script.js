@@ -1,6 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generator = require('./utility/generateHTML');
+const htmlBuilder = require('./utility/buildhtml');
+const managerCardBuilder = require('./utility/buildManagerCard');
+const engineerCardBuilder = require('./utility/buildEngineerCard');
+const internCardBuilder = require('./utility/buildInternCard');
+const { type } = require('os');
 
 
 // Actions needed
@@ -68,9 +72,26 @@ function buildManager() {
             type: 'input',
             message: managerOfficeNum,
         },
+        {
+            name: 'type',
+            type: 'list',
+            message: 'What type of team member would you like to add?',
+            choices: ["Engineer", "Intern", "I don't want any more team members"],
+        },
     ])
     .then((response) => {
         console.log(response);
+        const newManager = managerCardBuilder(response);
+        if (response.type === "I don't want any more team members") {
+            const newHTML = htmlBuilder(response);
+            writeToFile('myteam.html', newHTML)
+        } else if (response.type === "Intern") {
+            buildIntern();
+        } else if (response.type === "Engineer") {
+            buildEngineer();
+        } else {
+            console.log("weird it's broken")
+        }
     })
 };
 
@@ -130,9 +151,13 @@ function buildIntern() {
     })
 };
 
-function buildHTML() {
+function writeToFile(fileName, htmlData) {
+    fs.writeFile(
+        fileName,
+        htmlData,
+        (err) => err ? console.error(err) : console.log('My Team HTML generated!'));
+}
 
-};
 
 function initialize() {
     buildManager();
