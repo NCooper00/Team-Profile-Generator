@@ -1,0 +1,116 @@
+html {
+    background-color: #151515;
+}
+
+.mainBody {
+    
+}
+
+.mainHead {
+    height: 125px;
+    display: flex;
+    background-color: #202020;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 5px #0F0F0F;
+}
+
+.myTeam {
+    font-size: 85px;
+    color: #0A5FF3;
+    cursor: pointer;
+    text-shadow: 10px 2px 5px #0F0F0F;
+}
+
+.cardSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {  
+    background-color: #212121;
+    margin-top: 200px;
+    width: 200px;
+    height: 250px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 8px 5px 5px #0F0F0F;
+    border-radius: .25em;
+}
+
+.card:hover {
+    box-shadow: 12px 10px 5px #0F0F0F;
+    transform: translateY(-3px);
+    transition: transform 2s;
+    transition: box-shadow 1s;
+}
+
+.cardHeader {
+    background-color: #0A5FF3;
+    width: 100%;
+    height: 80px;
+    color: #CFD7E5;
+    box-shadow: 0px 5px 10px #0F0F0F;
+    background-image: linear-gradient(to bottom right, #072E71, #0A5FF3);
+    border-radius: .25em .25em 0 0;
+}
+
+.cardName {
+    padding-top: 10px;
+    margin-left: 10px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: default;
+}
+
+.cardIconOne, .cardIconTwo, .cardIconThree {
+    width: 20px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-size: cover;
+    opacity: 90%;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+
+.cardIconOne {
+    background-image: url("https://cdn-icons.flaticon.com/png/128/685/premium/685578.png?token=exp=1642172923~hmac=6990ecf13268ee0402a09707de76e915");
+}
+
+.cardIconTwo {
+    background-image: url("https://cdn-icons-png.flaticon.com/128/75/75668.png");
+}
+
+.cardIconThree {
+    background-image: url("https://cdn-icons.flaticon.com/png/128/46/premium/46045.png?token=exp=1642173299~hmac=9b5b12857e1877d5b31cb7f17dec4afd");
+}
+
+.cardRole {
+    margin-left: 30px;
+    padding-top: 10px;
+    font-size: 15px;
+    cursor: default;
+}
+
+.cardBody {
+    background-color: #252525;
+    width: 90%;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 15px #0F0F0F;
+}
+
+.sectionOne, .sectionTwo, .sectionThree {
+    border: 1px #191919 solid;
+    min-height: 30px;
+    word-wrap: break-word;
+    color: #CFD7E5;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 8px;
+    padding-left: 5px;
+}
