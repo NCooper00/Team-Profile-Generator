@@ -1,36 +1,37 @@
-function buildManagerCard(managerCardData) {
-    return `
-<div class="card">
-    <div class="cardHeader">
-        <h2 class="cardName">Name1</h3>
-            <div class="cardIconOne"></div>
-        <h3 class="cardRole">Manager</h3>
-    </div>
+// function buildManagerCard(managerCardData) {
+//     return `
+// <div class="card">
+//     <div class="cardHeader">
+//         <h2 class="cardName">${managerCardData.managerName}</h3>
+//             <div class="cardIconOne"></div>
+//         <h3 class="cardRole">Manager</h3>
+//     </div>
 
-    <div class="cardBody">
-        <div class="sectionOne">
-            ID:
-        </div>
+//     <div class="cardBody">
+//         <div class="sectionOne">
+//             ID: ${managerCardData.managerId}
+//         </div>
 
-        <div class="sectionTwo">
-            Email: 
-        </div>
+//         <div class="sectionTwo">
+//             Email: ${managerCardData.managerEmail}
+//         </div>
 
-        <div class="sectionThree">
-            Office number:
-        </div>
-    </div>
-</div>
-`
-}
+//         <div class="sectionThree">
+//             Office number: ${managerCardData.managerOfficeNum}
+//         </div>
+//     </div>
+// </div>
+// `
 
-function buildEngineerCard() {
+// }
 
-}
+// function buildEngineerCard() {
 
-function buildInternCard() {
+// }
 
-}
+// function buildInternCard() {
+
+// }
 
 function buildHTML(htmlData) {
     return `
@@ -132,7 +133,7 @@ function buildHTML(htmlData) {
 `
 }
 
+// module.exports = buildManagerCard;
+// module.exports = buildEngineerCard;
+// module.exports = buildInternCard;
 module.exports = buildHTML;
-module.exports = buildManagerCard;
-module.exports = buildEngineerCard;
-module.exports = buildInternCard;

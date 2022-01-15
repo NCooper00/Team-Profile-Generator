@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const htmlBuilder = require('./utility/buildhtml');
-const managerCardBuilder = require('./utility/buildManagerCard');
-const engineerCardBuilder = require('./utility/buildEngineerCard');
-const internCardBuilder = require('./utility/buildInternCard');
+const managerCardBuilder = require('./utility/buildmanagercard');
+const engineerCardBuilder = require('./utility/buildengineercard');
+const internCardBuilder = require('./utility/buildinterncard');
 const { type } = require('os');
 
 
@@ -82,6 +82,8 @@ function buildManager() {
     .then((response) => {
         console.log(response);
         const newManager = managerCardBuilder(response);
+        newManager;
+        console.log(newManager);
         if (response.type === "I don't want any more team members") {
             const newHTML = htmlBuilder(response);
             writeToFile('myteam.html', newHTML)
