@@ -1,39 +1,10 @@
-// function buildManagerCard(managerCardData) {
-//     return `
-// <div class="card">
-//     <div class="cardHeader">
-//         <h2 class="cardName">${managerCardData.managerName}</h3>
-//             <div class="cardIconOne"></div>
-//         <h3 class="cardRole">Manager</h3>
-//     </div>
+const buildManagerCard = require('./buildmanagercard');
+const writeToFile = require('../script')
 
-//     <div class="cardBody">
-//         <div class="sectionOne">
-//             ID: ${managerCardData.managerId}
-//         </div>
-
-//         <div class="sectionTwo">
-//             Email: ${managerCardData.managerEmail}
-//         </div>
-
-//         <div class="sectionThree">
-//             Office number: ${managerCardData.managerOfficeNum}
-//         </div>
-//     </div>
-// </div>
-// `
-
-// }
-
-// function buildEngineerCard() {
-
-// }
-
-// function buildInternCard() {
-
-// }
-
-function buildHTML(htmlData) {
+function buildHTML(newManager, newEngineer, newIntern) { 
+console.log(newManager), 
+console.log(newEngineer),
+console.log(newIntern);   
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -57,73 +28,12 @@ function buildHTML(htmlData) {
 <body>
     <div class="cardSection">
 
+        ${newManager}
+
+        ${newEngineer}
+
+        ${newIntern}
         
-        <div class="card">
-            <div class="cardHeader">
-                <h2 class="cardName">Name1</h3>
-                    <div class="cardIconOne"></div>
-                <h3 class="cardRole">Manager</h3>
-            </div>
-
-            <div class="cardBody">
-                <div class="sectionOne">
-                    ID:
-                </div>
-
-                <div class="sectionTwo">
-                    Email: 
-                </div>
-
-                <div class="sectionThree">
-                    Office number:
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <header class="cardHeader">
-                <h2 class="cardName">Name2</h2>
-                    <div class="cardIconTwo"></div>
-                <h3 class="cardRole">Engineer</h3>
-            </header>
-
-            <div class="cardBody">
-                <div class="sectionOne">
-                    ID:
-                </div>
-
-                <div class="sectionTwo">
-                    Email:
-                </div>
-
-                <div class="sectionThree">
-                    GitHub:
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <header class="cardHeader">
-                <h2 class="cardName">Name3</h2>
-                    <div class="cardIconThree"></div>
-                <h3 class="cardRole">Intern</h3>
-            </header>
-
-            <div class="cardBody">
-                <div class="sectionOne">
-                    ID:
-                </div>
-
-                <div class="sectionTwo">
-                    Email:
-                </div>
-
-                <div class="sectionThree">
-                    School:
-                </div>
-            </div>
-        </div>
-
 
     </div>
 
@@ -131,7 +41,9 @@ function buildHTML(htmlData) {
 </body>
 </html>
 `
+
 }
+
 
 // module.exports = buildManagerCard;
 // module.exports = buildEngineerCard;

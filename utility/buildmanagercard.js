@@ -24,9 +24,12 @@ function buildManagerCard(managerCardData) {
     </div>
 </div>
 `
-.then((managerCardData) => {
-    console.log(managerCardData);
-})
-}
+};
+
+
+
+// var test = buildManagerCard();
+// console.log(test);
 
 module.exports = buildManagerCard;
+

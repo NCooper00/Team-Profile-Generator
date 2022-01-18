@@ -82,14 +82,19 @@ function buildManager() {
     .then((response) => {
         console.log(response);
         const newManager = managerCardBuilder(response);
-        newManager;
-        console.log(newManager);
+        const newEngineer = engineerCardBuilder(response);
+        const newIntern = internCardBuilder(response);
+        // newManager;
+        // htmlBuilder(newManager);
+        console.log(htmlBuilder(newManager));
         if (response.type === "I don't want any more team members") {
             const newHTML = htmlBuilder(response);
-            writeToFile('myteam.html', newHTML)
+            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
         } else if (response.type === "Intern") {
+            htmlBuilder(newManager);
             buildIntern();
         } else if (response.type === "Engineer") {
+            htmlBuilder(newManager);
             buildEngineer();
         } else {
             console.log("weird it's broken")
@@ -119,9 +124,31 @@ function buildEngineer() {
             type: 'input',
             message: engineerGithub,
         },
+        {
+            name: 'type',
+            type: 'list',
+            message: 'What type of team member would you like to add?',
+            choices: ["Engineer", "Intern", "I don't want any more team members"],
+        },
     ])
     .then((response) => {
         console.log(response);
+        const newManager = managerCardBuilder(response);
+        const newEngineer = engineerCardBuilder(response);
+        const newIntern = internCardBuilder(response);
+        console.log(htmlBuilder(newEngineer));
+        if (response.type === "I don't want any more team members") {
+            const newHTML = htmlBuilder(response);
+            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
+        } else if (response.type === "Intern") {
+            htmlBuilder(newEngineer);
+            buildIntern();
+        } else if (response.type === "Engineer") {
+            htmlBuilder(newEngineer);
+            buildEngineer();
+        } else {
+            console.log("weird it's broken")
+        }
     })
 };
 
@@ -147,15 +174,38 @@ function buildIntern() {
             type: 'input',
             message: internSchool,
         },
+        {
+            name: 'type',
+            type: 'list',
+            message: 'What type of team member would you like to add?',
+            choices: ["Engineer", "Intern", "I don't want any more team members"],
+        },
     ])
     .then((response) => {
         console.log(response);
+        const newManager = managerCardBuilder(response);
+        const newEngineer = engineerCardBuilder(response);
+        const newIntern = internCardBuilder(response);
+        console.log(htmlBuilder(newIntern));
+        if (response.type === "I don't want any more team members") {
+            const newHTML = htmlBuilder(response);
+            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
+        } else if (response.type === "Intern") {
+            htmlBuilder(newIntern);
+            buildIntern();
+        } else if (response.type === "Engineer") {
+            htmlBuilder(newIntern);
+            buildEngineer();
+        } else {
+            console.log("weird it's broken")
+        }
     })
 };
 
 function writeToFile(fileName, htmlData) {
     fs.writeFile(
         fileName,
+
         htmlData,
         (err) => err ? console.error(err) : console.log('My Team HTML generated!'));
 }
@@ -169,3 +219,5 @@ function initialize() {
 
 // Initialization call
 initialize();
+
+module.exports = writeToFile;
