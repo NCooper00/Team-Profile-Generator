@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const htmlBuilder = require('./utility/buildhtml');
-const managerCardBuilder = require('./utility/buildmanagercard');
-const engineerCardBuilder = require('./utility/buildengineercard');
-const internCardBuilder = require('./utility/buildinterncard');
+const htmlBuilder = require('./tests/buildhtml');
+const managerCardBuilder = require('./tests/buildmanagercard');
+const engineerCardBuilder = require('./tests/buildengineercard');
+const internCardBuilder = require('./tests/buildinterncard');
 const { type } = require('os');
 
 
