@@ -1,10 +1,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const htmlBuilder = require('./tests/buildhtml');
-const managerCardBuilder = require('./tests/buildmanagercard');
-const engineerCardBuilder = require('./tests/buildengineercard');
-const internCardBuilder = require('./tests/buildinterncard');
+const path = require('path');
+const Employee = require('./lib/Employee.class');
+const Manager = require('./lib/Manager.class');
+const Engineer = require('./lib/Engineer.class');
+const Intern = require('./lib/Intern.class');
+const render = require('./lib/htmlBuilder')
 const { type } = require('os');
+
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "myteam.html");
 
 
 // Actions needed
@@ -23,6 +28,8 @@ const { type } = require('os');
 
 // Create html function: combine the result from the
 // builds above and write it to an html document
+
+const myTeam = []
 
 const managerQuestions = {
     managerName: "What is your team manager's name?",
@@ -80,21 +87,14 @@ function buildManager() {
         },
     ])
     .then((response) => {
-        console.log(response);
-        const newManager = managerCardBuilder(response);
-        const newEngineer = engineerCardBuilder(response);
-        const newIntern = internCardBuilder(response);
-        // newManager;
-        // htmlBuilder(newManager);
-        console.log(htmlBuilder(newManager));
+            const newManager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNum);
+            myTeam.push(newManager);
         if (response.type === "I don't want any more team members") {
-            const newHTML = htmlBuilder(response);
-            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
+            generateTeam();
+            console.log("Your team has been generated!");
         } else if (response.type === "Intern") {
-            htmlBuilder(newManager);
             buildIntern();
         } else if (response.type === "Engineer") {
-            htmlBuilder(newManager);
             buildEngineer();
         } else {
             console.log("weird it's broken")
@@ -132,19 +132,14 @@ function buildEngineer() {
         },
     ])
     .then((response) => {
-        console.log(response);
-        const newManager = managerCardBuilder(response);
-        const newEngineer = engineerCardBuilder(response);
-        const newIntern = internCardBuilder(response);
-        console.log(htmlBuilder(newEngineer));
+        const newEngineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
+        myTeam.push(newEngineer);
         if (response.type === "I don't want any more team members") {
-            const newHTML = htmlBuilder(response);
-            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
+            generateTeam();
+            console.log("Your team has been generated!");
         } else if (response.type === "Intern") {
-            htmlBuilder(newEngineer);
             buildIntern();
         } else if (response.type === "Engineer") {
-            htmlBuilder(newEngineer);
             buildEngineer();
         } else {
             console.log("weird it's broken")
@@ -182,19 +177,14 @@ function buildIntern() {
         },
     ])
     .then((response) => {
-        console.log(response);
-        const newManager = managerCardBuilder(response);
-        const newEngineer = engineerCardBuilder(response);
-        const newIntern = internCardBuilder(response);
-        console.log(htmlBuilder(newIntern));
+        const newIntern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
+        myTeam.push(newIntern);
         if (response.type === "I don't want any more team members") {
-            const newHTML = htmlBuilder(response);
-            writeToFile('myteam.html', htmlBuilder(newManager, newEngineer, newIntern))
+            generateTeam();
+            console.log("Your team has been generated!");
         } else if (response.type === "Intern") {
-            htmlBuilder(newIntern);
             buildIntern();
         } else if (response.type === "Engineer") {
-            htmlBuilder(newIntern);
             buildEngineer();
         } else {
             console.log("weird it's broken")
@@ -202,22 +192,16 @@ function buildIntern() {
     })
 };
 
-function writeToFile(fileName, htmlData) {
-    fs.writeFile(
-        fileName,
-
-        htmlData,
-        (err) => err ? console.error(err) : console.log('My Team HTML generated!'));
+function generateTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(myTeam), "utf-8")
 }
-
 
 function initialize() {
     buildManager();
 };
 
-
-
 // Initialization call
 initialize();
-
-module.exports = writeToFile;
