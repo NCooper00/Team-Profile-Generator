@@ -20,7 +20,8 @@ Listed below are shortcuts to different parts of the README.
 ## Installation
                 
 Listed below are the comand(s) required to install the necessary dependencies.    
--   npm i
+-   npm i inquirer
+-   npm i jest
                         
 ## Usage
                         
