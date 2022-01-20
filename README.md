@@ -33,7 +33,7 @@ All of the code and demonstration of use: https://watch.screencastify.com/v/eup2
 The resulting html document after the demonstration: https://watch.screencastify.com/v/ctXeMB5rr5jmW7AhTg5H
 
 Screenshot of html webpage:
-
+![image](https://user-images.githubusercontent.com/92492572/150246222-102e890b-58dd-4a42-9bc1-e2474c28ff95.png)
                         
 ## Credits
                         
