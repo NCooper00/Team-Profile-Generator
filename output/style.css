@@ -38,13 +38,13 @@ html {
     margin-right: 20px;
     box-shadow: 8px 5px 5px #0F0F0F;
     border-radius: .25em;
+    transition: transform 3s, box-shadow 2s;
 }
 
 .card:hover {
     box-shadow: 12px 10px 5px #0F0F0F;
     transform: translateY(-3px);
-    transition: transform 2s;
-    transition: box-shadow 1s;
+    transition: transform 2s, box-shadow 1s;
 }
 
 .cardHeader {

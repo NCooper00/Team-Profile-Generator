@@ -26,6 +26,14 @@ Listed below are the comand(s) required to install the necessary dependencies.
 ## Usage
                         
 To use this program, open the integrated terminal and type "node scipt.js". It will then ask a series of questions which can be filled out appropriately. This program could be used to display information for a managers team members on a webpage easily without having to know how to code.
+
+## Demonstration Videos & Screenshot
+
+All of the code and demonstration of use: https://watch.screencastify.com/v/eup27uQtx3bHIYFPrWZp
+The resulting html document after the demonstration: https://watch.screencastify.com/v/ctXeMB5rr5jmW7AhTg5H
+
+Screenshot of html webpage:
+
                         
 ## Credits
                         
